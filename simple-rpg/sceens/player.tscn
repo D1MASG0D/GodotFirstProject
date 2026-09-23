@@ -445,7 +445,30 @@ wait_time = 0.7
 [node name="dealAttackTimer" type="Timer" parent="." unique_id=246092534]
 wait_time = 0.5
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=256952697]
+zoom = Vector2(4, 4)
+limit_left = -192
+limit_top = -80
+limit_right = 288
+limit_bottom = 192
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="healthBar" type="ProgressBar" parent="." unique_id=1982829166]
+modulate = Color(0.35741496, 0.69857246, 0.110666625, 1)
+offset_left = -7.0
+offset_top = 5.0
+offset_right = 133.0
+offset_bottom = 31.666668
+scale = Vector2(0.1, 0.1)
+show_percentage = false
+
+[node name="regenTimer" type="Timer" parent="." unique_id=611908159]
+wait_time = 3.0
+autostart = true
+
 [connection signal="body_entered" from="playerHitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="playerHitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="attackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="dealAttackTimer" to="." method="_on_deal_attack_timer_timeout"]
+[connection signal="timeout" from="regenTimer" to="." method="_on_regen_timer_timeout"]

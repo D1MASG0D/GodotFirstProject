@@ -163,6 +163,15 @@ shape = SubResource("CircleShape2D_24lod")
 [node name="takeDamageCooldown" type="Timer" parent="." unique_id=851500858]
 wait_time = 0.5
 
+[node name="healthBar" type="ProgressBar" parent="." unique_id=2058897403]
+modulate = Color(0.57655555, 0.7872563, 0.23656571, 1)
+offset_left = -7.0
+offset_top = 5.0
+offset_right = 86.33333
+offset_bottom = 25.0
+scale = Vector2(0.15, 0.15)
+show_percentage = false
+
 [connection signal="body_entered" from="enemyhitbox" to="." method="_on_enemyhitbox_body_entered"]
 [connection signal="body_exited" from="enemyhitbox" to="." method="_on_enemyhitbox_body_exited"]
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]

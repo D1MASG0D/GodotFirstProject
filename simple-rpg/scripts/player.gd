@@ -17,12 +17,13 @@ func _physics_process(delta):
 	player_movement(delta)
 	enemyAttack()
 	attack()
+	updateHealt()
 	
 	if health<=0:
 		playerAlive=false
 		health = 0
 		print("DEAD")
-		self.queue.free()
+		self.queue_free()
 		
 func player_movement(delta):
 	
@@ -102,6 +103,7 @@ func enemyAttack():
 		enemyAttackCooldown=false
 		$attackCooldown.start()
 		print(health)
+		$regenTimer.start()
 
 
 func _on_attack_cooldown_timeout():
@@ -135,3 +137,20 @@ func _on_deal_attack_timer_timeout() -> void:
 	$dealAttackTimer.stop()
 	global.playerCurrentAttack=false
 	attackIP=false
+
+func updateHealt():
+	var healthBar= $healthBar
+	healthBar.value=health
+	if health >= 100:
+		healthBar.visible = false
+	else:
+		healthBar.visible = true
+
+
+func _on_regen_timer_timeout() -> void:
+	if health<100:
+		health+=15
+		if health>100:
+			health=100
+	if health <= 0:
+		health =0

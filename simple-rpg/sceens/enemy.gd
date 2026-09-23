@@ -56,3 +56,6 @@ func dealWithDamage():
 
 func _on_take_damage_cooldown_timeout() -> void:
 	canTakeDamage=true
+
+func updateHealth():
+	pass #shit abbt health

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SimpleRPG"
-run/main_scene="uid://c3jjhtf1ajrqd"
+run/main_scene="uid://bpspqdp8de82r"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,7 +23,11 @@ global="*uid://cugacjskbi5mo"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-window/stretch/scale=4.0
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
 
 [input]
 
