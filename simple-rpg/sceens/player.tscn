@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c5r88n6a58fqa" path="res://scripts/player.gd" id="1_786ye"]
 [ext_resource type="Texture2D" uid="uid://djqu71belisx3" path="res://sprites/characters/player.png" id="2_f1oci"]
+[ext_resource type="Texture2D" uid="uid://bmqqbbh1c7yls" path="res://sprites/particles/dust_particles_01.png" id="3_dust"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dowbf"]
 atlas = ExtResource("2_f1oci")
@@ -413,6 +414,29 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dust"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 40.0
+initial_velocity_min = 6.0
+initial_velocity_max = 16.0
+gravity = Vector3(0, 60, 0)
+damping_min = 30.0
+damping_max = 50.0
+scale_min = 0.5
+scale_max = 0.8
+color = Color(1, 1, 1, 0.75)
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+anim_offset_min = 0.0
+anim_offset_max = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dust"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_24lod"]
 radius = 4.0
 
@@ -428,6 +452,16 @@ script = ExtResource("1_786ye")
 sprite_frames = SubResource("SpriteFrames_24lod")
 animation = &"sideWalk"
 offset = Vector2(0, -15)
+
+[node name="dustParticles" type="GPUParticles2D" parent="." unique_id=1220685390]
+position = Vector2(0, 2)
+emitting = false
+amount = 8
+material = SubResource("CanvasItemMaterial_dust")
+process_material = SubResource("ParticleProcessMaterial_dust")
+texture = ExtResource("3_dust")
+lifetime = 0.35
+local_coords = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1797473716]
 position = Vector2(1, -2)
@@ -467,8 +501,12 @@ show_percentage = false
 wait_time = 3.0
 autostart = true
 
+[node name="deathTimer" type="Timer" parent="." unique_id=1220685372]
+wait_time = 1.0
+
 [connection signal="body_entered" from="playerHitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="playerHitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="attackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="dealAttackTimer" to="." method="_on_deal_attack_timer_timeout"]
 [connection signal="timeout" from="regenTimer" to="." method="_on_regen_timer_timeout"]
+[connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]

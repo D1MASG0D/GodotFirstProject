@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://ceq7k28nuesec" path="res://sprites/objects/objects.png" id="3_7hcux"]
 [ext_resource type="PackedScene" uid="uid://dipmi7flivv42" path="res://sceens/enemy.tscn" id="4_7hcux"]
 [ext_resource type="PackedScene" uid="uid://c3jjhtf1ajrqd" path="res://sceens/player.tscn" id="4_nuo3n"]
+[ext_resource type="PackedScene" uid="uid://cxmkga04h1pvt" path="res://sceens/pause.tscn" id="5_pause"]
+[ext_resource type="PackedScene" uid="uid://dp05w75tum0x5" path="res://sceens/hud.tscn" id="6_hud"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a5ou3"]
 texture = ExtResource("1_5yv8j")
@@ -172,6 +174,12 @@ script = ExtResource("1_a5ou3")
 [node name="enemy" parent="." unique_id=375141595 instance=ExtResource("4_7hcux")]
 position = Vector2(192, 56)
 
+[node name="enemy2" parent="." unique_id=375141596 instance=ExtResource("4_7hcux")]
+position = Vector2(-120, 40)
+
+[node name="enemy3" parent="." unique_id=375141597 instance=ExtResource("4_7hcux")]
+position = Vector2(60, 110)
+
 [node name="player" parent="." unique_id=19536051 instance=ExtResource("4_nuo3n")]
 
 [node name="ground" type="TileMapLayer" parent="." unique_id=2014361006]
@@ -192,11 +200,6 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAD1/wIAAgAAAAUAAAD6/wkAAgAAAAUAAAADAAkAAgAAAAUAAAD+/wIAAgAAAAUAAAAIAAIAAgAAAAUAAAANAP7/AgAAAAUAAAD8//3/AgAAAAUAAAAGAP3/AgAAAAUAAAAJAAkAAgAAAAUAAAD//wkAAgAKAAcAAAD2/wUAAgAKAAcAAAD2/wkAAgAKAAcAAAAPAAcAAgAKAAcAAAD7/wQAAgAAAAAAAAALAAEAAgAAAAAAAAD9/wgAAgAAAAEAAAANAAcAAgAAAAEAAAAKAP//AgAAAAEAAAD3/wsAAgAAAAEAAAAOAAQAAgAIAAYAAAD7/wAAAgAIAAYAAAD5//z/AgAIAAYAAAA=")
 tile_set = SubResource("TileSet_24lod")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=530009325]
-position = Vector2(288, 190.46)
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-
 [node name="colisions" type="StaticBody2D" parent="." unique_id=1707771326]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="colisions" unique_id=2127922875]
@@ -208,6 +211,10 @@ polygon = PackedVector2Array(2, 0, 480, -2, 481, 95, 512, 93, 512, 139, 481, 138
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CliffSideTransition" unique_id=366590517]
 position = Vector2(304, 38)
 shape = SubResource("RectangleShape2D_24lod")
+
+[node name="Hud" parent="." instance=ExtResource("6_hud")]
+
+[node name="Pause" parent="." instance=ExtResource("5_pause")]
 
 [connection signal="body_entered" from="CliffSideTransition" to="." method="_on_cliff_side_transition_body_entered"]
 [connection signal="body_exited" from="CliffSideTransition" to="." method="_on_cliff_side_transition_body_exited"]

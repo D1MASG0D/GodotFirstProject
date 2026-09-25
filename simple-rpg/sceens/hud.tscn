@@ -1,0 +1,15 @@
+[gd_scene format=4 uid="uid://dp05w75tum0x5"]
+
+[ext_resource type="Script" uid="uid://2fwao7c5acx1" path="res://sceens/hud.gd" id="1_hud"]
+
+[node name="Hud" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_hud")
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 160.0
+offset_bottom = 30.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4

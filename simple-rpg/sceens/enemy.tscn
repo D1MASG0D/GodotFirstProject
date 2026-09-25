@@ -163,6 +163,9 @@ shape = SubResource("CircleShape2D_24lod")
 [node name="takeDamageCooldown" type="Timer" parent="." unique_id=851500858]
 wait_time = 0.5
 
+[node name="deathTimer" type="Timer" parent="." unique_id=1450321098]
+wait_time = 1.0
+
 [node name="healthBar" type="ProgressBar" parent="." unique_id=2058897403]
 modulate = Color(0.57655555, 0.7872563, 0.23656571, 1)
 offset_left = -7.0
@@ -177,3 +180,4 @@ show_percentage = false
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="timeout" from="takeDamageCooldown" to="." method="_on_take_damage_cooldown_timeout"]
+[connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]

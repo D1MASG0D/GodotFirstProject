@@ -17,3 +17,8 @@ func finishChangingScenes():
 		currentScene= "cliff_side"
 	else:
 		currentScene= "world"
+
+func resetGame():
+	transitionScene=false
+	currentScene= "world"
+	gameFirstLoading= true
