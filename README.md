@@ -9,7 +9,6 @@ A small top-down 2D RPG prototype built with Godot 4.7.2. It is the product of a
 | `First Uni Project - Documentation` | **Canonical technical reference. Edit this one first.** | Obsidian vault, `~/.obsidian/Obsidian/` |
 | `docs/Technical Documentation.md` | Mirror of the canonical note, kept in the repo so the reference travels with the code | this repo |
 | `README.md` | This file: run instructions, controls, features, limitations | this repo |
-| `IMPLEMENTATION_PLAN.md` | The analysis written on 23 September, kept for portfolio history. Section 0 carries its current status | this repo |
 
 The vault note is the single source of truth for technical detail; the repo copy is a mirror. Change the vault note first, then copy the change across, so the two can never disagree about a scene, a value or a collision layer.
 
@@ -81,7 +80,6 @@ Movement is four-directional with no diagonals. Holding two directions favours t
 
 ```
 GodotFirstProject/            repo root (.gitignore, .gitattributes, README)
-├── IMPLEMENTATION_PLAN.md    analysis of the project plus the remaining work
 ├── docs/
 │   └── Technical Documentation.md   scene structure, collision, engine settings, combat flow
 └── simple-rpg/               the Godot 4.7.2 project

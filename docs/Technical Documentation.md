@@ -138,7 +138,6 @@ Enemy body touches playerHitbox ──▶ player health -= 15 (0.7 s cooldown)
 ```text
 GodotFirstProject/            # git repo root (.gitattributes with LFS rules, .gitignore)
 ├── README.md                 # how to run, controls, features, limitations
-├── IMPLEMENTATION_PLAN.md    # analysis and the remaining work
 ├── docs/
 │   └── Technical Documentation.md
 └── simple-rpg/               # Godot 4.7.2 project
